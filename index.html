@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="/calculator/CSS/style.css">
+    <link rel="shortcut icon" href="https://tse2.mm.bing.net/th?id=OIP.-ntAC5JUhvl1tlsGB5JjxwHaFj&pid=Api&P=0"
+        type="image/x-icon">
+</head>
+
+<body>
+    <!-- This is the heading -->
+    <h1>Calculator Using JavaScript</h1>
+
+    <!-- Calculator form -->
+    <form name="form1">
+        <div class="form">
+            <input id="calculator" name="answer" value="" autofocus>
+            <br> <br>
+
+            <!-- First row -->
+            <input id="one" type="button" onclick="form1.answer.value += '1' " value="1">
+            <input id="two" type="button" onclick="form1.answer.value += '2' " value="2">
+            <input id="three" type="button" onclick="form1.answer.value += '3' " value="3">
+            <input id="plus" type="button" onclick="form1.answer.value += '+' " value="+">
+            <br><br>
+
+            <!-- Second row -->
+            <input id="four" type="button" onclick="form1.answer.value += '4' " value="4">
+            <input id="five" type="button" onclick="form1.answer.value += '5' " value="5">
+            <input id="six" type="button" onclick="form1.answer.value += '6' " value="6">
+            <input id="minus" type="button" onclick="form1.answer.value += '-' " value="-">
+            <br><br>
+
+            <!-- Third row -->
+            <input id="seven" type="button" onclick="form1.answer.value += '7' " value="7">
+            <input id="eight" type="button" onclick="form1.answer.value += '8' " value="8">
+            <input id="nine" type="button" onclick="form1.answer.value += '9' " value="9">
+            <input id="multiply" type="button" onclick="form1.answer.value += '*' " value="X">
+            <br><br>
+
+            <!-- Fourth row -->
+            <input id="divide" type="button" onclick="form1.answer.value += '.' " value=".">
+            <input id="zero" type="button" onclick="form1.answer.value += '0' " value="0">
+            <input id="point" type="button" onclick="form1.answer.value += '/' " value="&divide;">
+            <input id="equal" type="button" value="=" onclick="form1.answer.value = eval(form1.answer.value)">
+            <br><br>
+
+            <!-- Clear row -->
+            <input id="clear" type="button" value="Clear" onclick="form1.answer.value = ''">
+        </div>
+    </form>
+</body>
+
+<script>
+    const inputElement = document.getElementById('calculator');
+
+    // Function to scroll the input automatically
+    function scrollInput() {
+        // Check if the content overflows the input width
+        if (inputElement.scrollWidth > inputElement.clientWidth) {
+            // Calculate the amount to scroll (in this example, we scroll to the end)
+            const scrollAmount = inputElement.scrollWidth - inputElement.clientWidth;
+
+            // Set the scroll position to the calculated amount
+            inputElement.scrollLeft = scrollAmount;
+        }
+    }
+
+    // Scroll the input automatically when the page loads
+    window.addEventListener('load', scrollInput);
+
+    // You can also call scrollInput() whenever you need to update the scroll position based on new content.
+
+    // Get a reference to the display element
+    const display = document.getElementById('calculator');
+
+    // Add an event listener for the 'keydown' event
+    document.addEventListener('keydown', function (event) {
+        // Check if the pressed key is a number (0-9)
+        if (/^\d$/.test(event.key)) {
+            // Append the pressed key to the display
+            display.innerHTML += event.key;
+        }
+    });
+
+    const input = document.getElementById('calculator');
+    const button = document.getElementById('equal');
+
+    // Add a keydown event listener to the input field
+    input.addEventListener('keydown', function (event) {
+        // Check if the pressed key is "Enter" (key code 13)
+        if (event.key === 'Enter' || event.keyCode === 13) {
+            // Prevent the default form submission behavior
+            event.preventDefault();
+
+            // Programmatically trigger a click event on the button
+            button.click();
+        }
+    });
+
+</script>
+
+</html>

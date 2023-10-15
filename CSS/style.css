@@ -1,0 +1,40 @@
+/* CSS Resets */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* body section */
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: black;
+    color: #fff;
+}
+
+h1 {
+    position: absolute;
+    top: 1rem;
+    text-align: center;
+}
+
+input {
+    width: 60px;
+    height: 60px;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+#calculator, #clear {
+    width: 252px;
+    font-size: 2rem;
+}
+
+#calculator {
+    overflow-x: auto;
+    white-space: nowrap;
+}
